@@ -1,6 +1,6 @@
 #include "enemy.h"
-static const int e_l=3;
-static const int e_h=2;
+static const int e_l=9;
+static const int e_h=3;
 static const int e_y=0;
 int e_x=0;
 bool e_dir=true;
@@ -19,10 +19,11 @@ void e_xylh(int*tf){//tf must be 4*sizeof(int)
     tf[3]=e_h;
 }
 void e_setup(){
-    e_disp=malloc(3*sizeof(char*));
+    e_disp=malloc(4*sizeof(char*));
     e_disp[2]=NULL;
-    *e_disp=" ^ ";
-    e_disp[1]="<->";
+    *e_disp=  "    ^    ";
+    e_disp[1]=" ^ <-> ^ ";
+    e_disp[2]="< <<->> >";
 }
 void e_cleanup(){
     free(e_disp);
