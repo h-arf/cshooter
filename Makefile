@@ -8,7 +8,7 @@ ALLDEPENDON=includes.h
 default_target: all
 .PHONY : default_target all
 
-all: shooter build
+all: build shooter
 
 debug: debug_dir shooter_d 
 
@@ -34,3 +34,5 @@ debug/main.o: $(ALLDEPENDON) main.c
 	$(CC) $(CFLAGS) -g  -c main.c -o debug/main.o
 debug/bar.o: $(ALLDEPENDON) bar.h bar.c
 	$(CC) $(CFLAGS) -g -c bar.c -o debug/bar.o
+clean:
+	rm -rf shooter shooter_d build debug

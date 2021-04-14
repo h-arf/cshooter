@@ -1,0 +1,7 @@
+shooter
+shooter_d
+build
+debug
+*.o
+.DS_Store
+
