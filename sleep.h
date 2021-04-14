@@ -1,1 +1,0 @@
-extern "C" void sleep_for(long);

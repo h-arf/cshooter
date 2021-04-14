@@ -17,7 +17,7 @@ debug_dir:
 build:
 	-mkdir build
 
-shooter: build/enemy.o build/main.o build/bar.o build/sleep.o
+shooter: build/enemy.o build/main.o build/bar.o 
 	$(CC) $(CFLAGS) build/{enemy,bar,main}.o -o shooter $(LDFLAGS)
 build/enemy.o: enemy.h $(ALLDEPENDON) enemy.c
 	$(CC) $(CFLAGS) -c enemy.c -o build/enemy.o
@@ -25,10 +25,8 @@ build/main.o: $(ALLDEPENDON) main.c
 	$(CC) $(CFLAGS) -c main.c -o build/main.o
 build/bar.o: $(ALLDEPENDON) bar.h bar.c
 	$(CC) $(CFLAGS) -c bar.c -o build/bar.o
-build/sleep.o: sleep.cpp sleep.h
-	$(CXX) $(CXXFLAGS) -c sleep.cpp -o build/sleep.o
 
-shooter_d: debug/enemy.o debug/main.o debug/bar.o debug/sleep.o
+shooter_d: debug/enemy.o debug/main.o debug/bar.o 
 	$(CC) $(CFLAGS) debug/{enemy,bar,main}.o -o shooter_d $(LDFLAGS)
 debug/enemy.o: enemy.h $(ALLDEPENDON) enemy.c
 	$(CC) $(CFLAGS) -g -c enemy.c -o debug/enemy.o
@@ -36,5 +34,3 @@ debug/main.o: $(ALLDEPENDON) main.c
 	$(CC) $(CFLAGS) -g  -c main.c -o debug/main.o
 debug/bar.o: $(ALLDEPENDON) bar.h bar.c
 	$(CC) $(CFLAGS) -g -c bar.c -o debug/bar.o
-debug/sleep.o: sleep.cpp sleep.h
-	$(CXX) $(CXXFLAGS) -g -c sleep.cpp -o debug/sleep.o
